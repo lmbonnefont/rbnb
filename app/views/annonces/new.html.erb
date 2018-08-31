@@ -1,0 +1,5 @@
+<%= simple_form_for @annonce do |f| %>
+  <%= f.input :prix %>
+  <%= f.input :pokemon,:collection => @pokemons,:include_blank => false %>
+  <%= f.submit "Créer une annonce", class: "btn btn-primary" %>
+<% end %>
