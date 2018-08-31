@@ -5,6 +5,18 @@ class AnnoncesController < ApplicationController
   end
 
   def create
+    @annonce = Annonce.new(annonce_params)
+    @annonce.user = current_user
+    @annonce.pokemon = Pokemon.find(1)
+    @annonce.save!
+    redirect_to annonce_path(@annonce)
+  end
 
+
+  private
+
+  def annonce_params
+    params.require(:annonce).permit(:prix, :address, :stars)
   end
 end
+
