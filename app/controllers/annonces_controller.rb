@@ -7,9 +7,14 @@ class AnnoncesController < ApplicationController
   def create
     @annonce = Annonce.new(annonce_params)
     @annonce.user = current_user
-    @annonce.pokemon = Pokemon.find(1)
+    @annonce.pokemon = Pokemon.first
     @annonce.save!
     redirect_to annonce_path(@annonce)
+  end
+
+  def show
+    @annonce = Annonce.find(params["id"])
+    @pokemon = Pokemon.find(@annonce.pokemon_id)
   end
 
 

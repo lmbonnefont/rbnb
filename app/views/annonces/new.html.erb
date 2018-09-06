@@ -1,5 +1,15 @@
-<%= simple_form_for @annonce do |f| %>
-  <%= f.input :prix %>
-  <%= f.input :pokemon,:collection => @pokemons,:include_blank => false %>
-  <%= f.submit "Créer une annonce", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4">
+      <div class="wrapper-annonce-creation">
+        <div class="wrapper-form text-center">
+          <%= simple_form_for @annonce do |f| %>
+            <%= f.input :prix %>
+            <%= f.input :pokemon,:collection => @pokemons,:include_blank => false %>
+            <%= f.submit "Créer une annonce", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
